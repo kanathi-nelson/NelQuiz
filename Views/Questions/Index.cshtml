@@ -1,0 +1,81 @@
+﻿@model IEnumerable<NelQuiz.Models.Questions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Assessment questions</h1>
+@if (ViewBag.myassessment != null)
+{
+    <p>
+        <a asp-action="Create" asp-controller="Questions" asp-route-assessmentid="@ViewBag.myassessment">Create New</a>
+    </p>
+}
+else
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+@if (ViewBag.newassessment != null)
+{
+    <h5>Assessment Name: </h5>
+    <h3>@ViewBag.newassessment</h3>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <th>
+            Topic 
+            </th>
+            <th>
+                Answer options
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedTime)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.QuizAnswers)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedTime)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-controller="Answeroptions" asp-action="Index" asp-route-questionid="@item.Id">Answer Options</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

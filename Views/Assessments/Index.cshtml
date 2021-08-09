@@ -1,0 +1,66 @@
+﻿@model IEnumerable<NelQuiz.Models.Assessments>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionPeriodInSeconds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedTime)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestionPeriodInSeconds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedTime)
+                </td>
+                <td>
+                    @if (ViewData["Rolename"].ToString() == "Admin")
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit |</a>
+                        <a asp-action="Details" asp-route-id="@item.Id"> Details | </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"> Delete |</a>
+                        <a asp-action="Index" asp-controller="Questions" asp-route-assessmentid="@item.Id">Questions</a>
+                    }
+                    @if (ViewData["Rolename"].ToString() != "Admin")
+                    {
+                        <a asp-action="TakeAssessment" asp-route-assessmentid="@item.Id"> <button type="button" class="btn btn-round btn-success">Take assessment </button> | </a>  
+                        <a asp-action="QuizResults" asp-route-dateTime="@item.CreatedDate"> <button type="button" class="btn btn-round btn-success">Assessment Perfomance</button></a> 
+                       
+                        
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@model NelQuiz.Viewmodels.MyFileModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Add resource</h2>
+<link href="~/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+<!-- page content -->
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-controller="Topics" asp-action="AddResource" method="post"
+              enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="TopicName" value="@ViewBag.topicname" hidden="hidden" class="form-control" />
+            <input asp-for="TopicId" value="@ViewBag.topicid" hidden="hidden" class="form-control" />
+
+            
+            <div class="form-group">
+                <input type="file" name="files" multiple class="form-control" />
+                @*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Upload Resources" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/vendors/dropzone/dist/min/dropzone.min.js"></script>
+

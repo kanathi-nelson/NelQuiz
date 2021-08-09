@@ -1,0 +1,117 @@
+﻿@model NelQuiz.Models.UserAssessment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Assessment Results</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-5 col-md-5   widget widget_tally_box">
+        <div class="x_panel">
+            <div class="x_content">
+
+                <div class="flex">
+                    <ul class="list-inline widget_profile_box">
+
+
+                        <li>
+                            <img src="~/images/img.png" alt="..." class="img-circle profile_img">
+                        </li>
+
+                    </ul>
+                </div>
+                <h3 style="text-align:center;">@Model.Assessments.Name </h3>
+                <h4 style="text-align:center;"><b>Percentage:</b> 25%</h4>
+                <h4 style="text-align:center;"><b>Result:</b> @ViewBag.Perfomance</h4>
+
+                <div class="flex">
+                    <ul class="list-inline count2">
+                        <li>
+
+                        </li>
+                        <li>
+                            <span>Questions perfomance</span>
+                            <h3>@Model.CorrectQuizes / @Model.TotalMarks</h3>
+                        </li>
+                        <li>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <h5 style="text-align:center;font-weight:700;text-decoration:underline;">
+                    <a asp-action="AssessmentAnswers" asp-route-assessmentid="@Model.AssessmentsId">
+                        View Answers
+                    </a>
+                </h5>
+                <table>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6  ">
+        <h4> Resources</h4>
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Topic perfomance summary</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Correct Questions</th>
+                            <th>Total Questions</th>
+                            <th>Percentage</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.results)
+                        {
+                        <tr>
+                            <td>@item.TopicName</td>
+                            <td>@item.CorrectAnswers</td>
+                            <td>@item.TotalQuizes</td>
+                            <td>@item.Percentage</td>
+                            @if (item.Percentage < 50)
+                            {
+                            <td>
+                                <a asp-action="Edit" asp-route-id="">Resources</a>
+                            </td>
+                            }
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<div class="row justify-content-center">
+
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

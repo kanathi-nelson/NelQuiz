@@ -1,0 +1,74 @@
+﻿@model NelQuiz.Viewmodels.AssessmentViewmodel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Assessments</h4>
+<hr />
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+        <h4 style="float:left;color:darkred;">Time remaining to answer:&nbsp; <h4 style="color:darkred;" id="myans"> </h4> </h4>
+<br />
+        <form id="myformid" asp-action="TakeAssessment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h3><b>Question: </b> @Model.QuestionName</h3>
+            <input asp-for="Assessmentid" hidden="hidden" class="form-control" />
+            <input asp-for="QuestionId" hidden="hidden" class="form-control" />
+            <input asp-for="QuestionName" hidden="hidden" class="form-control" />
+            <input id="timetoanswer" asp-for="Timetoanswer" hidden="hidden" class="form-control" />
+
+            <div class="form-group">
+                @foreach (var item in Model.AnswerOptions)
+                {
+                    <div class="radio">
+                        <label>
+                            <input asp-for="ChosenAnswerId" type="radio" checked="" value="@item.Id"> @item.Name
+                        </label>
+                    </div>
+                }
+
+            </div>
+
+            <div class="form-group">
+                <input id="mysubmitbutton" type="button" value="Next" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    var i = @ViewBag.questiontime;
+
+    $(document).ready(function () {
+
+        $("#myans").html(i);
+        setInterval(function () {
+            if (i == 0) {
+                document.getElementById('timetoanswer').value = i;
+                document.getElementById("myformid").submit();            }
+            i--;
+            $("#myans").html(i > -1 ? i : 0);
+        }, 1000);
+      
+    }); 
+
+    $("#mysubmitbutton").click(function ()
+    {
+        document.getElementById('timetoanswer').value = i;
+        document.getElementById("myformid").submit();
+    
+    });
+
+
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

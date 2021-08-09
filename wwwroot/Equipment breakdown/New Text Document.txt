@@ -1,0 +1,88 @@
+Job Requirements
+Education:Bachelor's degree
+Work experience:5 years
+Language skills:English
+Job Summary
+Contract Type:Full time
+The Software Developer will be reporting to the Head of
+Technology & Operations, the position holder will be responsible for
+architecting, designing, developing, and supporting solutions for our
+customers.
+Using agile methodology and associated devops practices, you will
+build scalable, highly available, reliable, secure application that meet and
+exceeds customers expectation.
+
+
+
+Responsibilities
+Guide and contribute to business requirements
+gathering by ensuring clarity, in collaboration with the Business Analyst
+
+Design, architect, develop and test SwitchLink 's
+Product and services as part of Scrum agile methodology.
+
+Maintain and
+support SwitchLink software, tools and platforms.
+
+Ensure secure coding is done and secure coding
+practices are adhered to, to protect SwitchLink 's data, Clients Data and Personally
+Identifiable information
+
+Implement SwitchLink's devops practices for all
+projects e.g., repo& registry commit, pipelining, code review, security
+testing etc
+
+Evaluate and
+improve existing, products and solutions, by researching new and alternate
+technologies and designs.
+
+Continuously
+improve the effectiveness of the development team through advancing the
+development pipeline, tools and software development practices.
+
+Develop Unit test for developed code.
+Engage with QA to ensure complete testing.
+
+Do peer code review.
+
+Contribute to Devops automation in testing and code
+analysis.
+
+Lead a team of
+engineers and non-engineers towards a common goal.
+
+Work as part of a
+project team, delivering tasks timely and with quality feedback to the project
+manager/scrum master.
+
+Ability to manage
+a project with a small and remote project team.
+
+Use
+various
+team collaboration tools
+
+QUALIFICATIONS AND SKILLS 
+
+4-6 Years’ Programming experience in a Software &
+Technology enabled industry.
+
+3 years of experience delivering and operating large scale,
+highly available, distributed systems.
+
+Strong knowledge of 
+C#/ Php-Laravel /Javascript – Vue.js, react
+
+Experience working with CI and CD workflows with
+associated tools eg jenkins, azure devops , circleci etc
+
+Experience with Docker or Kubernetes a strong plus
+
+Bsc Computer Science/IT or
+any other relevant degree
+
+Scrum Fundamentals or
+equivalent
+
+Scrum
+Master Certification Added advantage

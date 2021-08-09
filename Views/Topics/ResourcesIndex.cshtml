@@ -1,0 +1,44 @@
+﻿@model NelQuiz.Viewmodels.FilesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddResource" asp-route-topicindex="@ViewBag.resourceindex"  asp-route-topicname="@ViewBag.resourceindex">Create New</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Topic
+            </th>
+            <th>
+                Name
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Files)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Download" asp-route-filename="@item.Name" asp-route-topicname="@item.FName" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Download </a>
+                    <a asp-action="Delete" asp-route-id="@item.FName" asp-route-topicname="@item.FName" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
